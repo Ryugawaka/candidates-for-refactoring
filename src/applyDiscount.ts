@@ -1,11 +1,11 @@
 
+// добавил проверки на валидность в модуль 1
 // Модуль 1
 function calculateTotalPrice(items) {
-  let totalPrice = 0;
-  items.forEach((item) => {
-    totalPrice += item.price;
-  });
-  return totalPrice;
+
+  return Array.isArray(items) ? items.reduce((acc,item ) => {if (item.price) {
+    return acc + Number(item.price)
+  } return acc}, 0) : new Error('invalid items');
 }
 
 // Модуль 2

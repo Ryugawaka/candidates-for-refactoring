@@ -1,11 +1,10 @@
-const hasNotFoundStatus = (response: Response) => {
-  return response.status === HttpStatusCode.NOT_FOUND_404;
-};
+// вместо отдельных проверок на статус сделал функцию getStatus с возвращаемым статусом запроса
+const enum Stasuses {
+  [HttpStatusCode.NOT_FOUND_404]: 'notFound',
+  [HttpStatusCode.FORBIDDEN_403]: 'forbidden',
+  '503': 'serviceUnavailable'
+}
 
-const hasForbiddenStatus = (response: Response) => {
-  return response.status === HttpStatusCode.FORBIDDEN_403;
-};
-
-const hasServiceUnavailableStatus = (response: Response) => {
-  return response.status === 503;
-};
+const getStatus = (responce: Response) => {
+  return Stasuses[responce.status.toString()] || 'unexpectedError'
+}

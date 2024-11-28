@@ -1,1 +1,2 @@
-const newDate = date.add(5);
+// заменил на Date.now
+const newDate =  Date.now().toLocaleString()

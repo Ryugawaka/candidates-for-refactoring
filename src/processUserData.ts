@@ -1,13 +1,14 @@
+// убрал ненужный блок условия
 function processUserData(user) {
   // Получаем данные пользователя
-  const userData = getUserData(user);
+  const {age} = getUserData(user);
 
   // Проверяем данные пользователя
-  if (userData.age >= 18) {
-    // Обрабатываем данные
-    processUser(user);
-  } else {
+  if (age <= 18) {
     // Выводим ошибку
     console.error('User is under 18');
-  }
+    return;
+  } 
+  // Обрабатываем данные
+  processUser(user);
 }
