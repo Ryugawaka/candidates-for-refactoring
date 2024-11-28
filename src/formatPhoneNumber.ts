@@ -1,4 +1,5 @@
-function calculateTotalPrice(quantity, price) {
+// типы для calculateTotalPrice
+function calculateTotalPrice(quantity:number, price:number) {
   return quantity * price;
 }
 

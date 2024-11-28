@@ -1,8 +1,10 @@
+// улучшил читаемость условие, убрал дублирование лишнего кода
+const {age, employmentStatus, criminalRecord} = user
+const isAgeValid = age >= 18 && age <= 65
 if (
-  user.age >= 18 &&
-  user.age <= 65 &&
-  user.employmentStatus === 'employed' &&
-  user.criminalRecord === false
+  isAgeValid &&
+  employmentStatus === 'employed' &&
+  !criminalRecord 
 ) {
   approveLoan();
 }
